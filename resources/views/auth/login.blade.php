@@ -233,9 +233,12 @@
                     <i class="fas fa-sign-in-alt me-2"></i>Masuk
                 </button>
 
-                <!-- Register Link -->
+                <!-- Info -->
                 <div class="register-link">
-                    Belum punya akun? <a href="{{ route('register') }}">Daftar Sekarang</a>
+                    <small class="text-muted">
+                        <i class="fas fa-info-circle me-1"></i>
+                        Belum punya akun? Silakan hubungi admin untuk pendaftaran.
+                    </small>
                 </div>
             </form>
         </div>
