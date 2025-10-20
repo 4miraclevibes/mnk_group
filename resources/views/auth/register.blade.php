@@ -135,7 +135,7 @@
         <div class="register-left">
             <img src="{{ asset('mnk_logo-rbg.png') }}" alt="MNK Group Logo">
             <h2>Bergabunglah dengan Kami!</h2>
-            <p>Daftar sekarang untuk mengakses sistem ujian dan test kecermatan MNK Group</p>
+            <p>Daftar sekarang untuk mengakses sistem ujian dan test kecermatan Bimbel Jagratara</p>
         </div>
         <div class="register-right">
             <h3>Daftar Akun</h3>

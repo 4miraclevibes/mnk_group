@@ -5,7 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+        <title>Bimbel Jagratara</title>
+        <link rel="icon" type="image/x-icon" href="{{ asset('mnk_logo-rbg.png') }}" style="max-width: 250px; transform: rotate(270deg);"  />
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
