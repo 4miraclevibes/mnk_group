@@ -11,34 +11,42 @@
     <style>
         body {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 20px;
+            height: 100vh;
+            overflow: hidden;
+            padding: 10px;
+            margin: 0;
         }
         .exam-container {
             background-color: #ffffff;
             border-radius: 20px;
             box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-            padding: 40px;
-            max-width: 900px;
-            margin: 0 auto;
+            padding: 20px;
+            height: calc(100vh - 20px);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
         }
         .column-indicator {
             text-align: center;
-            font-size: 28px;
-            font-weight: bold;
-            color: #667eea;
-            margin-bottom: 20px;
-        }
-        .timer-box {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 15px 30px;
-            border-radius: 50px;
-            text-align: center;
             font-size: 24px;
             font-weight: bold;
-            margin-bottom: 30px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            color: #667eea;
+            margin-bottom: 10px;
+            flex-shrink: 0;
+        }
+        .timer-box {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            z-index: 1000;
         }
         .timer-box.warning {
             background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
@@ -51,29 +59,33 @@
         .pattern-display {
             background: #f8f9fa;
             border-radius: 15px;
-            padding: 30px;
-            margin-bottom: 30px;
+            padding: 15px;
+            margin-bottom: 15px;
             text-align: center;
+            flex-shrink: 0;
         }
         .pattern-display.question-pattern {
             background: white;
             border: 2px solid #667eea;
-            margin-top: 20px;
-            margin-bottom: 30px;
+            margin-top: 10px;
+            margin-bottom: 15px;
             width: fit-content;
             display: inline-block;
         }
         .pattern-container {
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 10px;
+            flex: 1;
+            overflow: auto;
+            min-height: 0;
         }
         .pattern-items {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 15px;
-            font-size: 32px;
+            gap: 10px;
+            font-size: 28px;
             font-weight: bold;
             color: #333;
         }
@@ -82,22 +94,22 @@
         }
         .pattern-item {
             background: white;
-            padding: 25px 35px;
+            padding: 15px 20px;
             border-radius: 10px;
             box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-            min-width: 100px;
+            min-width: 80px;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-direction: column;
-            gap: 12px;
+            gap: 8px;
         }
         .question-pattern .pattern-item {
-            padding: 15px 25px;
-            min-width: 70px;
+            padding: 10px 15px;
+            min-width: 60px;
         }
         .pattern-value {
-            font-size: 48px;
+            font-size: 36px;
             font-weight: bold;
             color: #333;
         }
@@ -111,28 +123,29 @@
             letter-spacing: 1px;
         }
         .question-section {
-            margin-top: 40px;
-            margin-bottom: 20px;
+            margin-top: 15px;
+            margin-bottom: 15px;
             background: #f8f9fa;
             border-radius: 15px;
-            padding: 30px;
+            padding: 15px;
+            flex-shrink: 0;
         }
         .question-title {
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 600;
             color: #333;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
             text-align: left;
         }
         .answer-options {
             display: flex;
             justify-content: flex-start;
-            gap: 15px;
-            margin-top: 20px;
+            gap: 10px;
+            margin-top: 15px;
         }
         .answer-btn {
-            padding: 30px 50px;
-            font-size: 24px;
+            padding: 20px 35px;
+            font-size: 20px;
             font-weight: 600;
             border: 2px solid #ced4da;
             border-radius: 10px;
@@ -140,7 +153,7 @@
             cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: 0 2px 5px rgba(0,0,0,0.08);
-            min-width: 140px;
+            min-width: 110px;
             color: #667eea;
         }
         .answer-btn:hover {
@@ -188,26 +201,27 @@
             margin-top: 20px;
         }
         .stats-bar {
-            display: none; /* Sembunyikan stats bar */
+            display: none; /* Hide stats bar */
             justify-content: space-around;
-            margin-bottom: 30px;
-            gap: 20px;
+            margin-bottom: 15px;
+            gap: 10px;
+            flex-shrink: 0;
         }
         .stat-box {
             flex: 1;
             background: white;
-            padding: 20px;
-            border-radius: 15px;
+            padding: 10px;
+            border-radius: 10px;
             text-align: center;
-            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         .stat-label {
-            font-size: 14px;
+            font-size: 12px;
             color: #666;
-            margin-bottom: 5px;
+            margin-bottom: 3px;
         }
         .stat-value {
-            font-size: 28px;
+            font-size: 20px;
             font-weight: bold;
         }
         .stat-value.score {
@@ -222,15 +236,17 @@
         .progress-indicator {
             text-align: center;
             color: #666;
-            font-size: 16px;
-            margin-top: 20px;
+            font-size: 14px;
+            margin-top: 10px;
+            flex-shrink: 0;
         }
         .submit-section {
             text-align: center;
-            margin-top: 30px;
-            padding: 30px;
+            margin-top: 15px;
+            padding: 15px;
             background: #f8f9fa;
             border-radius: 15px;
+            flex-shrink: 0;
         }
         .preparation-overlay {
             position: fixed;
@@ -305,20 +321,13 @@
         </div>
     </div>
 
+    <!-- Timer di pojok kanan atas -->
+    <div class="timer-box" id="timer">
+        <i class="fas fa-clock me-2"></i>
+        <span id="timerText">01:00</span>
+    </div>
+
     <div class="exam-container">
-        <!-- Header -->
-        <div class="text-center mb-4">
-            <h2 class="mb-2">{{ $exam->examType->testCategory->name }} - {{ $exam->examType->name }}</h2>
-            <h4 class="text-muted">{{ $exam->name }}</h4>
-            <p class="text-muted"><span class="badge bg-warning">{{ $exam->examType->section }}</span></p>
-        </div>
-
-        <!-- Timer -->
-        <div class="timer-box" id="timer">
-            <i class="fas fa-clock me-2"></i>
-            <span id="timerText">01:00</span>
-        </div>
-
         <!-- Column Indicator -->
         <div class="column-indicator" id="columnName">Kolom 1</div>
 
