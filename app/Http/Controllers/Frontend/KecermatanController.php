@@ -113,8 +113,8 @@ class KecermatanController extends Controller
             'user'
         ])->findOrFail($id);
 
-        // Pastikan user hanya bisa melihat hasil ujiannya sendiri
-        if ($result->user_id !== Auth::id()) {
+        // Pastikan user hanya bisa melihat hasil ujiannya sendiri (kecuali admin)
+        if ($result->user_id !== Auth::id() && Auth::user()->role !== 'admin') {
             abort(403, 'Anda tidak memiliki akses ke hasil ujian ini.');
         }
 
