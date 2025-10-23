@@ -220,7 +220,7 @@
 
         <div class="action-buttons">
             <a href="{{ route('exams.index') }}" class="btn btn-success-custom btn-custom">
-                <i class="fas fa-home me-2"></i>Daftar Ujian
+                <i class="fas fa-redo me-2"></i>Ujian Kembali
             </a>
             <a href="{{ route('exam.history') }}" class="btn btn-primary-custom btn-custom">
                 <i class="fas fa-history me-2"></i>Riwayat Hasil

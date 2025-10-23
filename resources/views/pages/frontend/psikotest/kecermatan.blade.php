@@ -628,12 +628,30 @@
             const column = columns[currentColumnIndex];
             // Cek apakah masih ada soal di kolom ini
             if (currentPatternIndex >= column.patterns.length) {
-                // Kalau soal habis, otomatis pindah kolom
-                nextColumn();
+                // Kalau soal habis, JANGAN pindah kolom otomatis
+                // Tunggu sampai waktu habis, timer yang akan handle perpindahan kolom
+                showWaitingMessage();
             } else {
                 // Kalau masih ada soal, tampilkan pattern berikutnya
                 showPattern();
             }
+        }
+
+        function showWaitingMessage() {
+            // Hide pattern displays dan answer options
+            document.getElementById('patternDisplayFull').innerHTML = '';
+            document.getElementById('patternDisplay').innerHTML = '';
+            document.getElementById('answerOptions').innerHTML = '';
+
+            // Show waiting message
+            const questionSection = document.querySelector('.question-section');
+            questionSection.innerHTML = `
+                <div style="text-align: center; padding: 40px;">
+                    <i class="fas fa-check-circle" style="font-size: 60px; color: #11998e; margin-bottom: 20px;"></i>
+                    <h3 style="color: #11998e; margin-bottom: 15px;">Semua Soal Selesai!</h3>
+                    <p style="font-size: 18px; color: #666;">Menunggu waktu habis untuk pindah ke kolom berikutnya...</p>
+                </div>
+            `;
         }
 
         function nextColumn() {
@@ -666,6 +684,25 @@
                 if (breakTime <= 0) {
                     clearInterval(breakInterval);
                     document.getElementById('columnBreakOverlay').style.display = 'none';
+
+                    // Restore question section structure
+                    const questionSection = document.querySelector('.question-section');
+                    questionSection.innerHTML = `
+                        <div class="question-title">Pertanyaan</div>
+
+                        <!-- Pattern Display DENGAN YANG HILANG -->
+                        <div class="pattern-display question-pattern">
+                            <div class="pattern-items" id="patternDisplay">
+                                <!-- Pattern DENGAN YANG HILANG akan di-generate oleh JavaScript -->
+                            </div>
+                        </div>
+
+                        <!-- Answer Options -->
+                        <div class="answer-options" id="answerOptions">
+                            <!-- Options akan di-generate oleh JavaScript -->
+                        </div>
+                    `;
+
                     showPattern();
                     startTimer();
                 }
