@@ -56,6 +56,7 @@ Route::middleware('auth')->group(function () {
     //Kecermatan
     Route::get('kecermatan/history', [KecermatanController::class, 'history'])->name('kecermatan.history');
     Route::get('kecermatan/result/{id}', [KecermatanController::class, 'result'])->name('kecermatan.result');
+    Route::get('kecermatan/result/{id}/detail', [KecermatanController::class, 'resultDetail'])->name('kecermatan.result.detail');
     Route::get('kecermatan/{id}', [KecermatanController::class, 'show'])->name('kecermatan.show');
     Route::post('kecermatan/submit', [KecermatanController::class, 'submit'])->name('kecermatan.submit');
 

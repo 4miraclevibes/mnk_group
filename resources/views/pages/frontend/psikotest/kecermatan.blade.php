@@ -610,10 +610,12 @@
             answeredCount++;
             totalAnswered++;
 
-            // Save answer
+            // Save answer with column info
             allAnswers.push({
                 answer_id: btn.dataset.answerId,
-                is_correct: isCorrect
+                is_correct: isCorrect,
+                column_name: column.name,
+                column_index: currentColumnIndex
             });
 
             updateStats();

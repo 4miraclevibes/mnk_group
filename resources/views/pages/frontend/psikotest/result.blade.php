@@ -106,6 +106,7 @@
             gap: 15px;
             justify-content: center;
             margin-top: 30px;
+            flex-wrap: wrap;
         }
         .btn-custom {
             padding: 12px 30px;
@@ -250,6 +251,9 @@
         @endif
 
         <div class="action-buttons">
+            <a href="{{ route('kecermatan.result.detail', $result->id) }}" class="btn btn-primary-custom btn-custom">
+                <i class="fas fa-chart-line me-2"></i>Detail Per Kolom
+            </a>
             <a href="{{ route('exams.index') }}" class="btn btn-success-custom btn-custom">
                 <i class="fas fa-redo me-2"></i>Ujian Kembali
             </a>

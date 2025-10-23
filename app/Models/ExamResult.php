@@ -16,6 +16,11 @@ class ExamResult extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function examResultDetails()
+    {
+        return $this->hasMany(ExamResultDetail::class);
+    }
 }
 
 

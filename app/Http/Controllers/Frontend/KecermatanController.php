@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\ExamSubject;
 use App\Models\ExamResult;
+use App\Models\ExamResultDetail;
 use Illuminate\Support\Facades\Auth;
 
 class KecermatanController extends Controller
@@ -63,15 +64,37 @@ class KecermatanController extends Controller
         $wrongCount = 0;
         $totalAnswered = count($userAnswers);
 
+        // Tracking per kolom
+        $columnStats = [];
+
         foreach ($userAnswers as $answerData) {
             $data = json_decode($answerData, true);
             if ($data && isset($data['is_correct'])) {
+                $columnName = $data['column_name'] ?? 'Unknown';
+
+                // Initialize column stats jika belum ada
+                if (!isset($columnStats[$columnName])) {
+                    $columnStats[$columnName] = [
+                        'correct' => 0,
+                        'wrong' => 0,
+                        'total' => 0,
+                        'score' => 0
+                    ];
+                }
+
+                // Update stats per kolom
+                $columnStats[$columnName]['total']++;
+
                 if ($data['is_correct']) {
                     $score += 1;
                     $correctCount++;
+                    $columnStats[$columnName]['correct']++;
+                    $columnStats[$columnName]['score']++;
                 } else {
                     $score -= 1;
                     $wrongCount++;
+                    $columnStats[$columnName]['wrong']++;
+                    $columnStats[$columnName]['score']--;
                 }
             }
         }
@@ -101,6 +124,18 @@ class KecermatanController extends Controller
             'score' => $scorePercentage,
             'description' => $description . " (Skor: {$score}, Benar: {$correctCount}, Salah: {$wrongCount})"
         ]);
+
+        // Simpan detail per kolom
+        foreach ($columnStats as $columnName => $stats) {
+            ExamResultDetail::create([
+                'exam_result_id' => $result->id,
+                'column_name' => $columnName,
+                'correct_count' => $stats['correct'],
+                'wrong_count' => $stats['wrong'],
+                'total_answered' => $stats['total'],
+                'score' => $stats['score']
+            ]);
+        }
 
         return redirect()->route('kecermatan.result', $result->id);
     }
@@ -135,5 +170,22 @@ class KecermatanController extends Controller
         ->get();
 
         return view('pages.frontend.psikotest.results', compact('results'));
+    }
+
+    public function resultDetail($id)
+    {
+        $result = ExamResult::with([
+            'examSubject.examType.testCategory',
+            'examSubject.examQuestions',
+            'examResultDetails',
+            'user'
+        ])->findOrFail($id);
+
+        // Pastikan user hanya bisa melihat hasil ujiannya sendiri (kecuali admin)
+        if ($result->user_id !== Auth::id() && Auth::user()->role !== 'admin') {
+            abort(403, 'Anda tidak memiliki akses ke hasil ujian ini.');
+        }
+
+        return view('pages.frontend.psikotest.result-detail', compact('result'));
     }
 }
