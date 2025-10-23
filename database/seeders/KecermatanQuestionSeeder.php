@@ -23,7 +23,7 @@ class KecermatanQuestionSeeder extends Seeder
             for ($i = 1; $i <= 10; $i++) {
                 $questions[] = [
                     'exam_subject_id' => $subject->id,
-                    'question' => "Kolom {$i}",
+                    'question' => "KOLOM {$i}",
                     'created_at' => now(),
                     'updated_at' => now(),
                 ];
