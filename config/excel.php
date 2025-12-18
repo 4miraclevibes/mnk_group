@@ -1,6 +1,7 @@
 <?php
 
 use Maatwebsite\Excel\Excel;
+use PhpOffice\PhpSpreadsheet\Reader\Csv;
 
 return [
     'exports' => [
@@ -127,7 +128,7 @@ return [
             'enclosure'        => '"',
             'escape_character' => '\\',
             'contiguous'       => false,
-            'input_encoding'   => 'guess',
+            'input_encoding'   => Csv::GUESS_ENCODING,
         ],
 
         /*
