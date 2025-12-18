@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\ExamSubject;
 use App\Models\ExamType;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
 
 class ExamController extends Controller
 {
@@ -125,11 +126,34 @@ class ExamController extends Controller
                 'user'
             ])
             ->where('exam_subject_id', $examSubjectId)
-            ->where('user_id', auth()->id())
+            ->where('user_id', Auth::id())
             ->orderBy('created_at', 'desc')
             ->get();
 
             return view('pages.backend.exams.admin-results', compact('examSubject', 'results'));
+
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
+        }
+    }
+
+    public function exportExcelView($examSubjectId)
+    {
+        try {
+            // Get exam subject with relationships
+            $examSubject = \App\Models\ExamSubject::with([
+                'examType.testCategory'
+            ])->findOrFail($examSubjectId);
+
+            // Get all results for this exam subject with user info
+            $results = \App\Models\ExamResult::with([
+                'user'
+            ])
+            ->where('exam_subject_id', $examSubjectId)
+            ->orderBy('created_at', 'desc')
+            ->get();
+
+            return view('pages.backend.exams.export-excel', compact('examSubject', 'results'));
 
         } catch (\Exception $e) {
             return redirect()->back()->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
