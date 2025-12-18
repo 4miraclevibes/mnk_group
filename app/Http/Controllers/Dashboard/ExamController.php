@@ -9,7 +9,7 @@ use App\Models\ExamType;
 use App\Models\ExamResult;
 use App\Models\User;
 use App\Exports\ExamResultsExport;
-use Maatwebsite\Excel\Facades\Excel;
+use Maatwebsite\Excel\Facades\Excel as ExcelFacade;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\DB;
 
@@ -147,7 +147,7 @@ class ExamController extends Controller
             $examSubject = ExamSubject::with(['examType.testCategory'])->findOrFail($examSubjectId);
             $fileName = 'Hasil_Ujian_' . str_replace(' ', '_', $examSubject->name) . '_' . date('Y-m-d_His') . '.xlsx';
 
-            return Excel::download(new ExamResultsExport($examSubjectId), $fileName);
+            return ExcelFacade::download(new ExamResultsExport($examSubjectId), $fileName);
         } catch (\Exception $e) {
             return redirect()->back()->with('error', 'Terjadi kesalahan saat export: ' . $e->getMessage());
         }
