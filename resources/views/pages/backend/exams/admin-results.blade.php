@@ -147,17 +147,9 @@
                     </h1>
                     <p class="mb-0">{{ $examSubject->examType->testCategory->name }} - {{ $examSubject->examType->name }} ({{ $examSubject->examType->section }})</p>
                 </div>
-                <div class="d-flex gap-2">
-                    <a href="{{ route('exams.user-exam-stats', $examSubject->id) }}" class="btn btn-info btn-lg">
-                        <i class="fas fa-users me-2"></i>Detail Peserta
-                    </a>
-                    <a href="{{ route('exams.export-excel', $examSubject->id) }}" class="btn btn-success btn-lg">
-                        <i class="fas fa-file-excel me-2"></i>Export Excel
-                    </a>
-                    <a href="{{ route('exams.index') }}" class="btn btn-light btn-lg">
-                        <i class="fas fa-arrow-left me-2"></i>Kembali
-                    </a>
-                </div>
+                <a href="{{ route('exams.index') }}" class="btn btn-light btn-lg">
+                    <i class="fas fa-arrow-left me-2"></i>Kembali
+                </a>
             </div>
         </div>
 
