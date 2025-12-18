@@ -6,12 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\ExamSubject;
 use App\Models\ExamType;
-use App\Models\ExamResult;
-use App\Models\User;
-use App\Exports\ExamResultsExport;
-use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Str;
-use Illuminate\Support\Facades\DB;
 
 class ExamController extends Controller
 {
@@ -135,44 +130,6 @@ class ExamController extends Controller
             ->get();
 
             return view('pages.backend.exams.admin-results', compact('examSubject', 'results'));
-
-        } catch (\Exception $e) {
-            return redirect()->back()->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
-        }
-    }
-
-    public function exportExcel($examSubjectId)
-    {
-        try {
-            $examSubject = ExamSubject::with(['examType.testCategory'])->findOrFail($examSubjectId);
-            $fileName = 'Hasil_Ujian_' . str_replace(' ', '_', $examSubject->name) . '_' . date('Y-m-d_His') . '.xlsx';
-
-            return Excel::download(new ExamResultsExport($examSubjectId), $fileName);
-        } catch (\Exception $e) {
-            return redirect()->back()->with('error', 'Terjadi kesalahan saat export: ' . $e->getMessage());
-        }
-    }
-
-    public function userExamStats($examSubjectId)
-    {
-        try {
-            $examSubject = ExamSubject::with(['examType.testCategory'])->findOrFail($examSubjectId);
-
-            // Get all users with their exam count for this subject
-            $users = User::withCount(['examResults' => function($query) use ($examSubjectId) {
-                $query->where('exam_subject_id', $examSubjectId);
-            }])
-            ->orderBy('name')
-            ->get();
-
-            // Get users who haven't taken the exam
-            $usersNotTaken = User::whereDoesntHave('examResults', function($query) use ($examSubjectId) {
-                $query->where('exam_subject_id', $examSubjectId);
-            })
-            ->orderBy('name')
-            ->get();
-
-            return view('pages.backend.exams.user-exam-detail', compact('examSubject', 'users', 'usersNotTaken'));
 
         } catch (\Exception $e) {
             return redirect()->back()->with('error', 'Terjadi kesalahan: ' . $e->getMessage());

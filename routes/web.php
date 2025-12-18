@@ -45,8 +45,6 @@ Route::middleware('auth')->group(function () {
     Route::get('exams', [ExamController::class, 'index'])->name('exams.index');
     Route::get('exams/{examSubjectId}/admin-results', [ExamController::class, 'adminResults'])->name('exams.admin-results');
     Route::get('exams/{examSubjectId}/user-results', [ExamController::class, 'userResults'])->name('exams.user-results');
-    Route::get('exams/{examSubjectId}/user-exam-stats', [ExamController::class, 'userExamStats'])->name('exams.user-exam-stats');
-    Route::get('exams/{examSubjectId}/export-excel', [ExamController::class, 'exportExcel'])->name('exams.export-excel');
     Route::post('exams/regenerate-tokens', [ExamController::class, 'regenerateTokens'])->name('exams.regenerate-tokens');
     Route::post('exams/toggle-status/{examTypeId}', [ExamController::class, 'toggleStatus'])->name('exams.toggle-status');
     Route::post('exam/submit', [FrontendExamController::class, 'submit'])->name('exam.submit');
