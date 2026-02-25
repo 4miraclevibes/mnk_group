@@ -52,7 +52,10 @@ class UserController extends Controller
 
     public function destroy($id)
     {
-        User::find($id)->delete();
+        $user = User::findOrFail($id);
+        // Hapus exam_results dulu (exam_result_details akan cascade otomatis di DB)
+        $user->examResults()->delete();
+        $user->delete();
         return redirect()->route('users.index')->with('success', 'User deleted successfully');
     }
 }
