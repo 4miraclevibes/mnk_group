@@ -113,8 +113,18 @@
             font-weight: bold;
             color: #333;
         }
+        .answer-content-image {
+            width: 78px;
+            height: 78px;
+            object-fit: contain;
+            display: block;
+        }
         .question-pattern .pattern-value {
             font-size: 32px;
+        }
+        .question-pattern .answer-content-image {
+            width: 92px;
+            height: 92px;
         }
         .pattern-label {
             font-size: 22px;
@@ -503,6 +513,33 @@
                 `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
         }
 
+        function getAnswerImageUrl(imagePath) {
+            if (!imagePath) {
+                return null;
+            }
+
+            if (imagePath.startsWith('http://') || imagePath.startsWith('https://') || imagePath.startsWith('/')) {
+                return imagePath;
+            }
+
+            return `{{ asset('storage') }}/${imagePath}`;
+        }
+
+        function appendAnswerContent(container, answerData, fallbackText) {
+            const imageUrl = getAnswerImageUrl(answerData?.image);
+
+            if (imageUrl) {
+                const img = document.createElement('img');
+                img.src = imageUrl;
+                img.alt = 'Jawaban';
+                img.className = 'answer-content-image';
+                container.appendChild(img);
+                return;
+            }
+
+            container.textContent = fallbackText;
+        }
+
         function showPattern() {
             if (currentColumnIndex >= columns.length) {
                 endExam();
@@ -534,7 +571,7 @@
                 // Value (L, H, M, etc) - TANPA ? (semua ditampilkan)
                 const valueDiv = document.createElement('div');
                 valueDiv.className = 'pattern-value';
-                valueDiv.textContent = answer.answer;
+                appendAnswerContent(valueDiv, answer, answer.answer);
 
                 // Label (A, B, C, D, E) - HANYA DI PATTERN LENGKAP
                 const labelDiv = document.createElement('div');
@@ -563,7 +600,7 @@
                 // Value (L, H, M, etc) - Hanya yang salah (4 item)
                 const valueDiv = document.createElement('div');
                 valueDiv.className = 'pattern-value';
-                valueDiv.textContent = answer.answer;
+                appendAnswerContent(valueDiv, answer, answer.answer);
 
                 item.appendChild(valueDiv);
                 patternDisplay.appendChild(item);
