@@ -144,7 +144,7 @@
         <div class="login-left">
             <img src="{{ asset('mnk_logo-rbg.png') }}" alt="MNK Group Logo">
             <h2>Selamat Datang!</h2>
-            <p>Silakan login untuk mengakses sistem ujian dan test kecermatan Bimbel Jagratara</p>
+            <p>Silakan login untuk mengakses sistem ujian dan test kecermatan Bimbel KOKO GROUP</p>
         </div>
         <div class="login-right">
             <h3>Login</h3>
