@@ -250,7 +250,7 @@
 
                         <div>
                             @if($examSubject->examType->section == 'AKADEMIK')
-                                <a href="{{ route('exam.result', $result->id) }}" class="btn-detail">
+                                <a href="{{ route('exam.result', $result->id) }}" class="btn-detail d-none">
                                     <i class="fas fa-eye me-2"></i>Lihat Detail
                                 </a>
                             @elseif($examSubject->examType->section == 'KECERMATAN')

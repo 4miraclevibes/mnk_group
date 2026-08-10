@@ -28,7 +28,7 @@
         </thead>
         <tbody>
           @foreach ($exams as $exam)
-          <tr>
+          <tr @if($exam->examType->section == 'AKADEMIK') class="d-none" @endif>
             <th scope="row">{{ $loop->iteration }}</th>
             <td>
               <span class="badge bg-primary">{{ $exam->examType->testCategory->name }}</span>
@@ -72,7 +72,7 @@
                 <!-- Exam Button (hanya muncul jika active) -->
                 @if($exam->examType->status == 'active')
                   @if($exam->examType->section == 'AKADEMIK')
-                    <button type="button" class="btn btn-primary btn-sm" onclick="showTokenModal({{ $exam->id }}, '{{ $exam->examType->token }}', 'AKADEMIK')" title="Ambil Ujian">
+                    <button type="button" class="btn btn-primary btn-sm d-none" onclick="showTokenModal({{ $exam->id }}, '{{ $exam->examType->token }}', 'AKADEMIK')" title="Ambil Ujian">
                       <i class="bx bx-book"></i>
                     </button>
                   @elseif($exam->examType->section == 'KECERMATAN')

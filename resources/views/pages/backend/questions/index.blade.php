@@ -41,13 +41,13 @@
         <div class="card-body">
           <!-- Section Tabs for AKPOL -->
           <ul class="nav nav-pills mb-3" id="akpolSectionTabs" role="tablist">
-            <li class="nav-item" role="presentation">
-              <button class="nav-link active" id="akpol-akademik-tab" data-bs-toggle="pill" data-bs-target="#akpol-akademik" type="button" role="tab">
+            <li class="nav-item d-none" role="presentation">
+              <button class="nav-link" id="akpol-akademik-tab" data-bs-toggle="pill" data-bs-target="#akpol-akademik" type="button" role="tab">
                 <i class="bx bx-book me-1"></i>AKADEMIK
               </button>
             </li>
             <li class="nav-item" role="presentation">
-              <button class="nav-link" id="akpol-kecermatan-tab" data-bs-toggle="pill" data-bs-target="#akpol-kecermatan" type="button" role="tab">
+              <button class="nav-link active" id="akpol-kecermatan-tab" data-bs-toggle="pill" data-bs-target="#akpol-kecermatan" type="button" role="tab">
                 <i class="bx bx-target-lock me-1"></i>KECERMATAN
               </button>
             </li>
@@ -55,7 +55,7 @@
 
           <div class="tab-content" id="akpolSectionTabsContent">
             <!-- AKPOL AKADEMIK -->
-            <div class="tab-pane fade show active" id="akpol-akademik" role="tabpanel">
+            <div class="tab-pane fade d-none" id="akpol-akademik" role="tabpanel">
               <div class="table-responsive">
                 <table class="table table-hover" id="akpol-akademik-table">
                   <thead class="table-dark">
@@ -108,7 +108,7 @@
             </div>
 
             <!-- AKPOL KECERMATAN -->
-            <div class="tab-pane fade" id="akpol-kecermatan" role="tabpanel">
+            <div class="tab-pane fade show active" id="akpol-kecermatan" role="tabpanel">
               <div class="table-responsive">
                 <table class="table table-hover" id="akpol-kecermatan-table">
                   <thead class="table-dark">
@@ -160,13 +160,13 @@
         <div class="card-body">
           <!-- Section Tabs for BINTARA -->
           <ul class="nav nav-pills mb-3" id="bintaraSectionTabs" role="tablist">
-            <li class="nav-item" role="presentation">
-              <button class="nav-link active" id="bintara-akademik-tab" data-bs-toggle="pill" data-bs-target="#bintara-akademik" type="button" role="tab">
+            <li class="nav-item d-none" role="presentation">
+              <button class="nav-link" id="bintara-akademik-tab" data-bs-toggle="pill" data-bs-target="#bintara-akademik" type="button" role="tab">
                 <i class="bx bx-book me-1"></i>AKADEMIK
               </button>
             </li>
             <li class="nav-item" role="presentation">
-              <button class="nav-link" id="bintara-kecermatan-tab" data-bs-toggle="pill" data-bs-target="#bintara-kecermatan" type="button" role="tab">
+              <button class="nav-link active" id="bintara-kecermatan-tab" data-bs-toggle="pill" data-bs-target="#bintara-kecermatan" type="button" role="tab">
                 <i class="bx bx-target-lock me-1"></i>KECERMATAN
               </button>
             </li>
@@ -174,7 +174,7 @@
 
           <div class="tab-content" id="bintaraSectionTabsContent">
             <!-- BINTARA AKADEMIK -->
-            <div class="tab-pane fade show active" id="bintara-akademik" role="tabpanel">
+            <div class="tab-pane fade d-none" id="bintara-akademik" role="tabpanel">
               <div class="table-responsive">
                 <table class="table table-hover" id="bintara-akademik-table">
                   <thead class="table-dark">
@@ -227,7 +227,7 @@
             </div>
 
             <!-- BINTARA KECERMATAN -->
-            <div class="tab-pane fade" id="bintara-kecermatan" role="tabpanel">
+            <div class="tab-pane fade show active" id="bintara-kecermatan" role="tabpanel">
               <div class="table-responsive">
                 <table class="table table-hover" id="bintara-kecermatan-table">
                   <thead class="table-dark">
@@ -279,13 +279,13 @@
         <div class="card-body">
           <!-- Section Tabs for TAMTAMA -->
           <ul class="nav nav-pills mb-3" id="tamtamaSectionTabs" role="tablist">
-            <li class="nav-item" role="presentation">
-              <button class="nav-link active" id="tamtama-akademik-tab" data-bs-toggle="pill" data-bs-target="#tamtama-akademik" type="button" role="tab">
+            <li class="nav-item d-none" role="presentation">
+              <button class="nav-link" id="tamtama-akademik-tab" data-bs-toggle="pill" data-bs-target="#tamtama-akademik" type="button" role="tab">
                 <i class="bx bx-book me-1"></i>AKADEMIK
               </button>
             </li>
             <li class="nav-item" role="presentation">
-              <button class="nav-link" id="tamtama-kecermatan-tab" data-bs-toggle="pill" data-bs-target="#tamtama-kecermatan" type="button" role="tab">
+              <button class="nav-link active" id="tamtama-kecermatan-tab" data-bs-toggle="pill" data-bs-target="#tamtama-kecermatan" type="button" role="tab">
                 <i class="bx bx-target-lock me-1"></i>KECERMATAN
                 </button>
             </li>
@@ -293,7 +293,7 @@
 
           <div class="tab-content" id="tamtamaSectionTabsContent">
             <!-- TAMTAMA AKADEMIK -->
-            <div class="tab-pane fade show active" id="tamtama-akademik" role="tabpanel">
+            <div class="tab-pane fade d-none" id="tamtama-akademik" role="tabpanel">
               <div class="table-responsive">
                 <table class="table table-hover" id="tamtama-akademik-table">
                   <thead class="table-dark">
@@ -346,7 +346,7 @@
             </div>
 
             <!-- TAMTAMA KECERMATAN -->
-            <div class="tab-pane fade" id="tamtama-kecermatan" role="tabpanel">
+            <div class="tab-pane fade show active" id="tamtama-kecermatan" role="tabpanel">
               <div class="table-responsive">
                 <table class="table table-hover" id="tamtama-kecermatan-table">
                   <thead class="table-dark">
@@ -428,12 +428,12 @@
                 <label for="create_section" class="form-label">Section <span class="text-danger">*</span></label>
                 <select class="form-control @error('section') is-invalid @enderror" id="create_section" name="section" required>
                   <option value="">Select Section</option>
-                  <option value="AKADEMIK">AKADEMIK</option>
+                  <option value="AKADEMIK" hidden>AKADEMIK</option>
                   <option value="KECERMATAN">KECERMATAN</option>
                 </select>
                 @error('section')
-              <div class="invalid-feedback">{{ $message }}</div>
-            @enderror
+                  <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
               </div>
             </div>
           </div>
@@ -530,7 +530,7 @@
                 <label for="edit_section" class="form-label">Section</label>
                 <select class="form-control @error('section') is-invalid @enderror" id="edit_section" name="section">
                   <option value="">Select Section</option>
-                  <option value="AKADEMIK">AKADEMIK</option>
+                  <option value="AKADEMIK" hidden>AKADEMIK</option>
                   <option value="KECERMATAN">KECERMATAN</option>
                 </select>
                 @error('section')
