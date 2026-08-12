@@ -98,7 +98,7 @@
 <body>
     <div class="forgot-container">
         <div class="logo-container">
-            <img src="{{ asset('mnk_logo-rbg.png') }}" alt="MNK Group Logo">
+            <img src="{{ asset('logoNew.png') }}" alt="MNK Group Logo">
         </div>
 
         <h3>Lupa Password?</h3>

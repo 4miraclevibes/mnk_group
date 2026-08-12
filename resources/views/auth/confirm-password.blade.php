@@ -84,7 +84,7 @@
 <body>
     <div class="confirm-container">
         <div class="logo-container">
-            <img src="{{ asset('mnk_logo-rbg.png') }}" alt="MNK Group Logo">
+            <img src="{{ asset('logoNew.png') }}" alt="MNK Group Logo">
         </div>
 
         <h3>Konfirmasi Password</h3>

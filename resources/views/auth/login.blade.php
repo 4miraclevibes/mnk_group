@@ -142,9 +142,9 @@
 <body>
     <div class="login-container">
         <div class="login-left">
-            <img src="{{ asset('mnk_logo-rbg.png') }}" alt="MNK Group Logo">
+            <img src="{{ asset('logoNew.png') }}" alt="MNK Group Logo">
             <h2>Selamat Datang!</h2>
-            <p>Silakan login untuk mengakses sistem ujian dan test kecermatan Bimbel KOKO GROUP</p>
+            <p>Silakan login untuk mengakses sistem ujian dan test kecermatan Bimbel Agrasara</p>
         </div>
         <div class="login-right">
             <h3>Login</h3>

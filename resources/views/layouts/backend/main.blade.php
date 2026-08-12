@@ -16,12 +16,12 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
     />
 
-    <title>Bimbel KOKO GROUP</title>
+    <title>Bimbel Agrasara</title>
 
     <meta name="description" content="" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="{{ asset('mnk_logo-rbg.png') }}" style="max-width: 250px; transform: rotate(270deg);"  />
+    <link rel="icon" type="image/x-icon" href="{{ asset('logoNew.png') }}" style="max-width: 250px; transform: rotate(270deg);"  />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
