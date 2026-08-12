@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Bimbel KOKO</title>
+        <title>Bimbel Agrasara</title>
         <link rel="icon" type="image/x-icon" href="{{ asset('logoNew.png') }}" style="max-width: 250px; transform: rotate(270deg);"  />
 
         <!-- Fonts -->
