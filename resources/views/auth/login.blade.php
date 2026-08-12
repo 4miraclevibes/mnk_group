@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - MNK Group</title>
+    <title>Login - Agrasara</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
@@ -142,7 +142,7 @@
 <body>
     <div class="login-container">
         <div class="login-left">
-            <img src="{{ asset('logoNew.png') }}" alt="MNK Group Logo">
+            <img src="{{ asset('logoNew.png') }}" alt="Agrasara Logo">
             <h2>Selamat Datang!</h2>
             <p>Silakan login untuk mengakses sistem ujian dan test kecermatan Bimbel Agrasara</p>
         </div>
