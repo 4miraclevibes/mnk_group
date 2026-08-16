@@ -70,7 +70,9 @@
             margin-top: 10px;
             margin-bottom: 15px;
             width: fit-content;
-            display: inline-block;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
         }
         .pattern-container {
             display: flex;
@@ -90,7 +92,7 @@
             color: #333;
         }
         .question-pattern .pattern-items {
-            justify-content: flex-start;
+            justify-content: center;
         }
         .pattern-item {
             background: white;
