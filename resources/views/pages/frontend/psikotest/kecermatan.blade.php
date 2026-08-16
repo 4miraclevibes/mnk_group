@@ -59,7 +59,7 @@
         .pattern-display {
             background: #f8f9fa;
             border-radius: 15px;
-            padding: 15px;
+            padding: 10px 15px;
             margin-bottom: 15px;
             text-align: center;
             flex-shrink: 0;
@@ -73,6 +73,7 @@
             display: block;
             margin-left: auto;
             margin-right: auto;
+            padding: 15px;
         }
         .pattern-container {
             display: flex;
@@ -93,43 +94,47 @@
         }
         .question-pattern .pattern-items {
             justify-content: center;
+            gap: 12px;
         }
         .pattern-item {
             background: white;
-            padding: 15px 20px;
-            border-radius: 10px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-            min-width: 80px;
+            padding: 8px 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+            min-width: 52px;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-direction: column;
-            gap: 8px;
+            gap: 4px;
         }
         .question-pattern .pattern-item {
-            padding: 10px 15px;
-            min-width: 60px;
+            padding: 14px 18px;
+            min-width: 100px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            gap: 0;
         }
         .pattern-value {
-            font-size: 36px;
+            font-size: 22px;
             font-weight: bold;
             color: #333;
         }
         .answer-content-image {
-            width: 78px;
-            height: 78px;
+            width: 42px;
+            height: 42px;
             object-fit: contain;
             display: block;
         }
         .question-pattern .pattern-value {
-            font-size: 32px;
+            font-size: 40px;
         }
         .question-pattern .answer-content-image {
-            width: 92px;
-            height: 92px;
+            width: 110px;
+            height: 110px;
         }
         .pattern-label {
-            font-size: 22px;
+            font-size: 14px;
             color: #667eea;
             font-weight: 600;
             letter-spacing: 1px;
