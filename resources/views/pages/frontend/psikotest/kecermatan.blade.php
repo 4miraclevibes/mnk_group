@@ -147,7 +147,7 @@
             font-weight: 600;
             color: #333;
             margin-bottom: 10px;
-            text-align: left;
+            text-align: center;
         }
         .answer-options {
             display: flex;
