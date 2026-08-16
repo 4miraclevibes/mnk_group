@@ -7,8 +7,18 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
+        :root {
+            --ink: #1a1d21;
+            --slate: #2f343a;
+            --steel: #4a5058;
+            --mist: #e8eaed;
+            --ash: #6b7280;
+        }
         body {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background:
+                radial-gradient(ellipse at 20% 20%, rgba(255, 255, 255, 0.06), transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(255, 255, 255, 0.04), transparent 45%),
+                linear-gradient(145deg, #1a1d21 0%, #2f343a 55%, #3d4450 100%);
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -16,9 +26,9 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         .login-container {
-            background: white;
+            background: #ffffff;
             border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            box-shadow: 0 24px 64px rgba(0, 0, 0, 0.45);
             overflow: hidden;
             max-width: 900px;
             width: 100%;
@@ -26,13 +36,15 @@
         }
         .login-left {
             flex: 1;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background:
+                radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.08), transparent 55%),
+                linear-gradient(160deg, #111417 0%, #1f2429 50%, #2a3038 100%);
             padding: 60px 40px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            color: white;
+            color: #f3f4f6;
             text-align: center;
         }
         .login-left img {
@@ -46,39 +58,42 @@
         }
         .login-left p {
             font-size: 16px;
-            opacity: 0.9;
+            opacity: 0.78;
+            color: #d1d5db;
         }
         .login-right {
             flex: 1;
             padding: 60px 50px;
+            background: #fafbfc;
         }
         .login-right h3 {
             font-size: 28px;
             font-weight: bold;
-            color: #333;
+            color: var(--ink);
             margin-bottom: 10px;
         }
         .login-right p {
-            color: #666;
+            color: var(--ash);
             margin-bottom: 30px;
         }
         .form-control {
             padding: 12px 15px;
             border-radius: 10px;
-            border: 2px solid #e0e0e0;
+            border: 2px solid var(--mist);
+            background: #fff;
             transition: all 0.3s ease;
         }
         .form-control:focus {
-            border-color: #667eea;
-            box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+            border-color: var(--steel);
+            box-shadow: 0 0 0 0.2rem rgba(47, 52, 58, 0.15);
         }
         .form-label {
             font-weight: 600;
-            color: #333;
+            color: var(--slate);
             margin-bottom: 8px;
         }
         .btn-login {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #2f343a 0%, #1a1d21 100%);
             border: none;
             padding: 12px 30px;
             border-radius: 10px;
@@ -89,31 +104,32 @@
         }
         .btn-login:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 10px 24px rgba(26, 29, 33, 0.35);
+            color: white;
         }
         .forgot-password {
-            color: #667eea;
+            color: var(--steel);
             text-decoration: none;
             font-size: 14px;
             transition: all 0.3s ease;
         }
         .forgot-password:hover {
-            color: #764ba2;
+            color: var(--ink);
             text-decoration: underline;
         }
         .register-link {
             text-align: center;
             margin-top: 20px;
-            color: #666;
+            color: var(--ash);
             font-size: 14px;
         }
         .register-link a {
-            color: #667eea;
+            color: var(--steel);
             text-decoration: none;
             font-weight: 600;
         }
         .register-link a:hover {
-            color: #764ba2;
+            color: var(--ink);
             text-decoration: underline;
         }
         .alert {
@@ -122,8 +138,8 @@
             margin-bottom: 20px;
         }
         .form-check-input:checked {
-            background-color: #667eea;
-            border-color: #667eea;
+            background-color: var(--slate);
+            border-color: var(--slate);
         }
         @media (max-width: 768px) {
             .login-container {
