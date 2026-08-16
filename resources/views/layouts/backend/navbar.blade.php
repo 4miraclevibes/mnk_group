@@ -1,10 +1,10 @@
         <!-- Menu -->
 
         <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
-            <div class="app-brand demo m-0 border-bottom">
+            <div class="app-brand demo m-0 border-bottom" style="min-height: 110px; height: auto; overflow: visible; padding-top: 0.75rem; padding-bottom: 0.75rem;">
               <a href="#" class="app-brand-link">
-                <span class="app-brand-logo demo">
-                  <img src="{{ asset('logoWithText.png') }}" style="max-height: 48px; width: auto;" alt="">
+                <span class="app-brand-logo demo" style="overflow: visible;">
+                  <img src="{{ asset('logoWithText.png') }}" style="max-height: 90px; width: auto;" alt="">
                 </span>
               </a>
 
