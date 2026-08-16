@@ -161,24 +161,28 @@
             margin-top: 15px;
         }
         .answer-btn {
-            padding: 20px 35px;
+            padding: 12px 48px;
             font-size: 20px;
             font-weight: 600;
-            border: 2px solid #ced4da;
+            border: 2px solid #9ec5fe;
             border-radius: 10px;
-            background-color: #ffffff;
+            background-color: #eef4ff;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.08);
-            min-width: 110px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.06);
+            min-width: 130px;
+            height: 52px;
             color: #667eea;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
         }
         .answer-btn:hover {
             background-color: #667eea;
             color: white;
             border-color: #667eea;
-            transform: translateY(-5px);
-            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 16px rgba(102, 126, 234, 0.35);
         }
         .answer-btn.selected {
             background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
