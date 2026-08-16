@@ -32,7 +32,6 @@
         }
         .logo-container img {
             max-width: 120px;
-            transform: rotate(270deg);
         }
         .reset-container h3 {
             font-size: 28px;
@@ -99,7 +98,7 @@
 <body>
     <div class="reset-container">
         <div class="logo-container">
-            <img src="{{ asset('logoNew.png') }}" alt="Agrasara Logo">
+            <img src="{{ asset('logoWithText.png') }}" alt="Agrasara Logo">
         </div>
 
         <h3>Reset Password</h3>

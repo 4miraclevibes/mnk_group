@@ -31,7 +31,6 @@
         }
         .logo-container img {
             max-width: 120px;
-            transform: rotate(270deg);
         }
         .verify-container h3 {
             font-size: 28px;
@@ -90,7 +89,7 @@
 <body>
     <div class="verify-container">
         <div class="logo-container">
-            <img src="{{ asset('logoNew.png') }}" alt="Agrasara Logo">
+            <img src="{{ asset('logoWithText.png') }}" alt="Agrasara Logo">
         </div>
 
         <h3>Verifikasi Email</h3>

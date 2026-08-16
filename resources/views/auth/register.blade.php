@@ -40,7 +40,6 @@
         .register-left img {
             max-width: 200px;
             margin-bottom: 30px;
-            transform: rotate(270deg);
         }
         .register-left h2 {
             font-size: 32px;
@@ -133,7 +132,7 @@
 <body>
     <div class="register-container">
         <div class="register-left">
-            <img src="{{ asset('logoNew.png') }}" alt="Agrasara Logo">
+            <img src="{{ asset('logoWithText.png') }}" alt="Agrasara Logo">
             <h2>Bergabunglah dengan Kami!</h2>
             <p>Daftar sekarang untuk mengakses sistem ujian dan test kecermatan Bimbel Agrasara</p>
         </div>

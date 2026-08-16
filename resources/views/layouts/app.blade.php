@@ -7,7 +7,7 @@
 
         <title>Bimbel Agrasara</title>
         <!-- Favicon -->
-        <link rel="icon" type="image/x-icon" href="{{ asset('logoNew.png') }}" style="max-width: 250px; transform: rotate(270deg);"  />
+        <link rel="icon" type="image/x-icon" href="{{ asset('logoWithText.png') }}"  />
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">

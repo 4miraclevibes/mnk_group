@@ -31,7 +31,6 @@
         }
         .logo-container img {
             max-width: 120px;
-            transform: rotate(270deg);
         }
         .forgot-container h3 {
             font-size: 28px;
@@ -98,7 +97,7 @@
 <body>
     <div class="forgot-container">
         <div class="logo-container">
-            <img src="{{ asset('logoNew.png') }}" alt="Agrasara Logo">
+            <img src="{{ asset('logoWithText.png') }}" alt="Agrasara Logo">
         </div>
 
         <h3>Lupa Password?</h3>

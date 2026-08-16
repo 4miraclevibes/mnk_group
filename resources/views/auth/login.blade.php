@@ -38,7 +38,6 @@
         .login-left img {
             max-width: 200px;
             margin-bottom: 30px;
-            transform: rotate(270deg);
         }
         .login-left h2 {
             font-size: 32px;
@@ -142,7 +141,7 @@
 <body>
     <div class="login-container">
         <div class="login-left">
-            <img src="{{ asset('logoNew.png') }}" alt="Agrasara Logo">
+            <img src="{{ asset('logoWithText.png') }}" alt="Agrasara Logo">
             <h2>Selamat Datang!</h2>
             <p>Silakan login untuk mengakses sistem ujian dan test kecermatan Bimbel Agrasara</p>
         </div>
