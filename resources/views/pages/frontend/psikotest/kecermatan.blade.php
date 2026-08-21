@@ -134,8 +134,8 @@
         .pattern-display {
             background: #f8f9fa;
             border-radius: 15px;
-            padding: 10px 15px;
-            margin-bottom: 15px;
+            padding: 16px 20px;
+            margin-bottom: 20px;
             text-align: center;
             flex-shrink: 0;
         }
@@ -162,7 +162,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 10px;
+            gap: 14px;
             font-size: 28px;
             font-weight: bold;
             color: #333;
@@ -173,15 +173,15 @@
         }
         .pattern-item {
             background: white;
-            padding: 8px 10px;
-            border-radius: 8px;
+            padding: 12px 14px;
+            border-radius: 10px;
             box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-            min-width: 52px;
+            min-width: 68px;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-direction: column;
-            gap: 4px;
+            gap: 6px;
         }
         .question-pattern .pattern-item {
             padding: 18px 28px;
@@ -191,13 +191,13 @@
             gap: 0;
         }
         .pattern-value {
-            font-size: 22px;
+            font-size: 26px;
             font-weight: bold;
             color: #333;
         }
         .answer-content-image {
-            width: 42px;
-            height: 42px;
+            width: 56px;
+            height: 56px;
             object-fit: contain;
             display: block;
         }
@@ -209,7 +209,7 @@
             height: 130px;
         }
         .pattern-label {
-            font-size: 14px;
+            font-size: 16px;
             color: #667eea;
             font-weight: 600;
             letter-spacing: 1px;
