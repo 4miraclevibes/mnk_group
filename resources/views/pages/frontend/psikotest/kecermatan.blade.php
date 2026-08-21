@@ -26,6 +26,25 @@
             flex-direction: column;
             overflow: hidden;
         }
+        .exam-topbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-shrink: 0;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        .exam-topbar-title,
+        .exam-topbar-user {
+            font-size: 16px;
+            font-weight: 700;
+            color: #212529;
+            margin: 0;
+        }
+        .exam-topbar-user {
+            text-transform: uppercase;
+        }
         .exam-stage {
             flex-shrink: 0;
             margin-bottom: 12px;
@@ -384,6 +403,11 @@
     </div>
 
     <div class="exam-container">
+        <div class="exam-topbar">
+            <div class="exam-topbar-title">Tes Psikologi</div>
+            <div class="exam-topbar-user">{{ Auth::user()->name }}</div>
+        </div>
+
         <div class="exam-stage">
             <div class="exam-stage-label">Tahap Ujian</div>
             <div class="exam-stage-badge">{{ $exam->name }}</div>
