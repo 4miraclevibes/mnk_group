@@ -169,7 +169,7 @@
         }
         .question-pattern .pattern-items {
             justify-content: center;
-            gap: 12px;
+            gap: 16px;
         }
         .pattern-item {
             background: white;
@@ -184,8 +184,8 @@
             gap: 4px;
         }
         .question-pattern .pattern-item {
-            padding: 14px 18px;
-            min-width: 100px;
+            padding: 18px 28px;
+            min-width: 140px;
             border-radius: 10px;
             box-shadow: 0 3px 10px rgba(0,0,0,0.1);
             gap: 0;
@@ -202,11 +202,11 @@
             display: block;
         }
         .question-pattern .pattern-value {
-            font-size: 40px;
+            font-size: 48px;
         }
         .question-pattern .answer-content-image {
-            width: 110px;
-            height: 110px;
+            width: 130px;
+            height: 130px;
         }
         .pattern-label {
             font-size: 14px;
@@ -219,7 +219,7 @@
             margin-bottom: 15px;
             background: #f8f9fa;
             border-radius: 15px;
-            padding: 15px;
+            padding: 15px 20px;
             flex-shrink: 0;
         }
         .question-title {
@@ -231,12 +231,17 @@
         }
         .answer-options {
             display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 15px;
+            justify-content: stretch;
+            gap: 12px;
+            margin-top: 18px;
+            width: 100%;
+            max-width: 720px;
+            margin-left: auto;
+            margin-right: auto;
         }
         .answer-btn {
-            padding: 12px 48px;
+            flex: 1;
+            padding: 14px 18px;
             font-size: 20px;
             font-weight: 600;
             border: 2px solid #9ec5fe;
@@ -245,12 +250,13 @@
             cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: 0 2px 5px rgba(0,0,0,0.06);
-            min-width: 130px;
-            height: 52px;
+            min-width: 0;
+            height: 56px;
             color: #667eea;
             display: inline-flex;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
+            text-align: left;
         }
         .answer-btn:hover {
             background-color: #667eea;
