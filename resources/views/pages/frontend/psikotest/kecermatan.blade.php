@@ -26,6 +26,41 @@
             flex-direction: column;
             overflow: hidden;
         }
+        .exam-stage {
+            flex-shrink: 0;
+            margin-bottom: 12px;
+            position: relative;
+            min-height: 52px;
+        }
+        .exam-stage-label {
+            position: absolute;
+            top: 0;
+            left: 0;
+            font-size: 13px;
+            font-weight: 600;
+            color: #495057;
+        }
+        .exam-stage-badge {
+            display: block;
+            width: fit-content;
+            margin: 18px auto 0;
+            padding: 8px 28px;
+            border: 2px solid #667eea;
+            border-radius: 10px;
+            background: #eef4ff;
+            color: #667eea;
+            font-size: 16px;
+            font-weight: 600;
+            text-align: center;
+        }
+        .exam-main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 0;
+            overflow: auto;
+        }
         .column-indicator {
             text-align: center;
             font-size: 24px;
@@ -349,6 +384,12 @@
     </div>
 
     <div class="exam-container">
+        <div class="exam-stage">
+            <div class="exam-stage-label">Tahap Ujian</div>
+            <div class="exam-stage-badge">{{ $exam->name }}</div>
+        </div>
+
+        <div class="exam-main">
         <!-- Column Indicator -->
         <div class="column-indicator" id="columnName">Kolom 1</div>
 
@@ -415,6 +456,7 @@
             <button type="button" class="btn btn-primary btn-lg" onclick="submitExam()">
                 <i class="fas fa-check-circle me-2"></i>Lihat Hasil
             </button>
+        </div>
         </div>
     </div>
 
