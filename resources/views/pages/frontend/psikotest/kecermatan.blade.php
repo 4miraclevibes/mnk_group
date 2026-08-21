@@ -10,20 +10,17 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
         body {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #e9ecef;
             height: 100vh;
             overflow: hidden;
-            padding: 10px;
+            padding: 16px 20px;
             margin: 0;
         }
-        .exam-container {
-            background-color: #ffffff;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-            padding: 20px;
-            height: calc(100vh - 20px);
+        .exam-page {
+            height: calc(100vh - 32px);
             display: flex;
             flex-direction: column;
+            gap: 14px;
             overflow: hidden;
         }
         .exam-topbar {
@@ -31,9 +28,10 @@
             justify-content: space-between;
             align-items: center;
             flex-shrink: 0;
-            margin-bottom: 16px;
-            padding-bottom: 12px;
-            border-bottom: 1px solid #e9ecef;
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 14px 22px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
         }
         .exam-topbar-title,
         .exam-topbar-user {
@@ -45,24 +43,43 @@
         .exam-topbar-user {
             text-transform: uppercase;
         }
-        .exam-stage {
+        .exam-info-row {
+            display: flex;
+            gap: 14px;
             flex-shrink: 0;
-            margin-bottom: 12px;
-            position: relative;
-            min-height: 52px;
         }
-        .exam-stage-label {
-            position: absolute;
-            top: 0;
-            left: 0;
+        .exam-info-card {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+            padding: 12px 18px 16px;
+        }
+        .exam-info-card.stage {
+            flex: 2;
+            position: relative;
+            min-height: 78px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .exam-info-card.timer {
+            flex: 1;
+            min-width: 200px;
+        }
+        .exam-info-label {
             font-size: 13px;
             font-weight: 600;
             color: #495057;
         }
+        .exam-info-card.stage .exam-info-label {
+            position: absolute;
+            top: 12px;
+            left: 18px;
+        }
         .exam-stage-badge {
-            display: block;
+            display: inline-block;
             width: fit-content;
-            margin: 18px auto 0;
+            margin-top: 8px;
             padding: 8px 28px;
             border: 2px solid #667eea;
             border-radius: 10px;
@@ -72,39 +89,43 @@
             font-weight: 600;
             text-align: center;
         }
-        .exam-main {
+        .exam-timer-value {
+            margin-top: 8px;
+            font-size: 32px;
+            font-weight: 700;
+            color: #667eea;
+            letter-spacing: 1px;
+            line-height: 1.1;
+        }
+        .exam-timer-value.warning {
+            color: #f5576c;
+            animation: pulse 1s infinite;
+        }
+        .exam-container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+            padding: 18px 22px;
             flex: 1;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            min-height: 0;
             overflow: auto;
+            min-height: 0;
+        }
+        .exam-main {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            flex: 1;
+            min-height: 0;
         }
         .column-indicator {
             text-align: center;
-            font-size: 24px;
+            font-size: 22px;
             font-weight: bold;
             color: #667eea;
             margin-bottom: 10px;
             flex-shrink: 0;
-        }
-        .timer-box {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 10px 25px;
-            border-radius: 50px;
-            text-align: center;
-            font-size: 20px;
-            font-weight: bold;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            z-index: 1000;
-        }
-        .timer-box.warning {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            animation: pulse 1s infinite;
         }
         @keyframes pulse {
             0%, 100% { transform: scale(1); }
@@ -396,23 +417,24 @@
         </div>
     </div>
 
-    <!-- Timer di pojok kanan atas -->
-    <div class="timer-box" id="timer">
-        <i class="fas fa-clock me-2"></i>
-        <span id="timerText">01:00</span>
-    </div>
-
-    <div class="exam-container">
+    <div class="exam-page">
         <div class="exam-topbar">
             <div class="exam-topbar-title">Tes Psikologi</div>
             <div class="exam-topbar-user">{{ Auth::user()->name }}</div>
         </div>
 
-        <div class="exam-stage">
-            <div class="exam-stage-label">Tahap Ujian</div>
-            <div class="exam-stage-badge">{{ $exam->name }}</div>
+        <div class="exam-info-row">
+            <div class="exam-info-card stage">
+                <div class="exam-info-label">Tahap Ujian</div>
+                <div class="exam-stage-badge">{{ $exam->name }}</div>
+            </div>
+            <div class="exam-info-card timer">
+                <div class="exam-info-label">Sisa Waktu</div>
+                <div class="exam-timer-value" id="timerText">00:01:00</div>
+            </div>
         </div>
 
+        <div class="exam-container">
         <div class="exam-main">
         <!-- Column Indicator -->
         <div class="column-indicator" id="columnName">Kolom 1</div>
@@ -480,6 +502,7 @@
             <button type="button" class="btn btn-primary btn-lg" onclick="submitExam()">
                 <i class="fas fa-check-circle me-2"></i>Lihat Hasil
             </button>
+        </div>
         </div>
         </div>
     </div>
@@ -569,12 +592,13 @@
         }
 
         function startTimer() {
+            updateTimerDisplay();
             timerInterval = setInterval(() => {
                 timeLeft--;
                 updateTimerDisplay();
 
                 if (timeLeft <= 10) {
-                    document.getElementById('timer').classList.add('warning');
+                    document.getElementById('timerText').classList.add('warning');
                 }
 
                 if (timeLeft <= 0) {
@@ -584,10 +608,11 @@
         }
 
         function updateTimerDisplay() {
-            const minutes = Math.floor(timeLeft / 60);
+            const hours = Math.floor(timeLeft / 3600);
+            const minutes = Math.floor((timeLeft % 3600) / 60);
             const seconds = timeLeft % 60;
             document.getElementById('timerText').textContent =
-                `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+                `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
         }
 
         function getAnswerImageUrl(imagePath) {
@@ -772,7 +797,7 @@
 
         function nextColumn() {
             clearInterval(timerInterval);
-            document.getElementById('timer').classList.remove('warning');
+            document.getElementById('timerText').classList.remove('warning');
 
             currentColumnIndex++;
             currentPatternIndex = 0;
@@ -845,7 +870,7 @@
             document.querySelector('.question-section').style.display = 'none';
             document.querySelector('.progress-indicator').style.display = 'none';
             document.getElementById('columnName').style.display = 'none';
-            document.getElementById('timer').style.display = 'none';
+            document.querySelector('.exam-info-card.timer').style.display = 'none';
             document.querySelector('.stats-bar').style.display = 'none';
 
             // Show submit section
